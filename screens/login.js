@@ -13,7 +13,7 @@ export default class Login extends React.Component {
       .then(response => response.json())
       .then(data => {
         if (data.length) {
-          alert('Success');
+            this.props.navigation.navigate('Inbox')
         } else {
           alert('Account does not exist.');
         }
