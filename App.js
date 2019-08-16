@@ -4,6 +4,9 @@ import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
 /*** Screens ***/
 import Login from './screens/login.js'
 import InboxScreen from './screens/inbox.js'
+import MessageScreen from './screens/message.js'
+import ArchivedScreen from './screens/archived.js'
+import NavBar from './screens/navbar'
 import { createStackNavigator, createAppContainer } from "react-navigation";
 const GLOBAL = require('./globals.js');
 
@@ -71,7 +74,10 @@ const styles = StyleSheet.create({
 const AppNavigator = createStackNavigator(
   {
     Home: HomeScreen,
-    Inbox: InboxScreen
+    Inbox: InboxScreen,
+    Message: MessageScreen,
+    Archive: ArchivedScreen,
+    Nav: NavBar,
   },
   {
     initialRouteName: "Home"

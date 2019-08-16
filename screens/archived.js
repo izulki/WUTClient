@@ -6,7 +6,7 @@ import {List, ListItem} from 'react-native-elements';
 
 import NavBar from './navbar';
 
-export default class InboxScreen extends React.Component {
+export default class ArchiveScreen extends React.Component {
   constructor(props) {
     super(props);
 
@@ -18,14 +18,15 @@ export default class InboxScreen extends React.Component {
   }
 
   componentDidMount() {
+    console.log("From archives:", this.props.navigation.getParam('userData', null))
     this._fetchInbox(this.props.navigation.getParam('userData', null));
   }
 
   _fetchInbox(userData) {
     console.log(
-      `_fetchInbox(): ${GLOBAL.API_ADDRESS_PORT}email/${userData[0].user_id}`,
+      `_fetchInbox(): ${GLOBAL.API_ADDRESS_PORT}email/${userData[0].user_id}/archived`,
     );
-    fetch(`${GLOBAL.API_ADDRESS_PORT}email/${userData[0].user_id}`)
+    fetch(`${GLOBAL.API_ADDRESS_PORT}email/${userData[0].user_id}/archived`)
       .then(response => response.json())
       .then(data => {
         if (data.length) {
@@ -75,7 +76,7 @@ export default class InboxScreen extends React.Component {
           ))}
         </View>
         <View style={{flex:1}}>
-          <NavBar userData={this.props.navigation.getParam('userData', null)} />
+          <NavBar />
         </View>
       </View>
     );
