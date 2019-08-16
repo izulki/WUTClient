@@ -19,13 +19,12 @@ class HomeScreen extends React.Component {
       .then(response => response.json())
       .then(data => {
         if (data.length) {
-            this.props.navigation.navigate('Inbox')
+            this.props.navigation.navigate('Inbox', {userData: data})
         } else {
           alert('Account does not exist.');
         }
       });
   }
-
 
   render() {
     return (
